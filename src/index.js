@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
 import UserList from './components/User/UserList';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import apiService from './api.sevice';
 
-const reducer = (state = { count: 0 }, action) => {
+const reducer = (state = { users: [{ name: 'Pesho' }] }, action) => {
     switch(action.type) {
-        case 'Increment':
+        case 'GetAll':
             const stateCopy = Object.assign({}, state);
-            stateCopy.count++;
+            stateCopy.users = apiService.getUsersREST();
             return stateCopy;
         default:
             return state;
@@ -23,8 +23,3 @@ ReactDOM.render(
     <UserList />
 </Provider>,
 document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
