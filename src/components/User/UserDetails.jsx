@@ -19,10 +19,12 @@ const UserDetails = ({ user }) => (
 );
 
 UserDetails.propTypes = {
-    age: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    user: PropTypes.shape({
+        age: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired
+    }).isRequired
 };
  
 export default UserDetails;
