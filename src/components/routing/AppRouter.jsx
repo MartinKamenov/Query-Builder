@@ -5,9 +5,9 @@ import SingleUser from '../User/SingleUser';
 
 const AppRouter = () => (
     <Router>
-        <div className='container'>
-            <Route exact path='/' component={UserList}></Route>
-            <Route path='/:id' component={SingleUser}></Route>
+        <div className='container' style={{ textAlign: 'center' }}>
+            <Route exact path='/' component={UserList}/>
+            <Route path='/:id' component={SingleUser}/>
         </div>
     </Router>
 );

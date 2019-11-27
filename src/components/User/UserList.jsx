@@ -28,11 +28,11 @@ const UserList = () => {
                             console.log(error);
                         }
 
-                        return data.users.map((user) => (
+                        return (data.users.map((user) => (
                             <UserDetails
                                 key={user['id']}
                                 user={user}/>
-                        ));
+                        )));
                     }
                 }
             </Query>

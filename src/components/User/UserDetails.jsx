@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const UserDetails = ({ user }) => (
     <div
@@ -9,18 +10,23 @@ const UserDetails = ({ user }) => (
             borderRadius: 10,
             padding: 10
         }}>
-        <h3>{user['name']}, {user['age']}</h3>
-        <img
-            style={{
-                width: 100,
-                height: 100,
-                border: '1px solid black',
-                borderRadius: '50%'
-            }}
-            src={user['imageUrl']}
-            alt={user['name']}
-            width={100}
-            height={100}/>
+        <Link to={`/${user.id}`}>
+            <h3 style={{
+                textDecoration: 'none',
+                color: 'black'
+            }}>{user['name']}, {user['age']}</h3>
+            <img
+                style={{
+                    width: 100,
+                    height: 100,
+                    border: '1px solid black',
+                    borderRadius: '50%'
+                }}
+                src={user['imageUrl']}
+                alt={user['name']}
+                width={100}
+                height={100}/>
+        </Link>
     </div>
 );
 
