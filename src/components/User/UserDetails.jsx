@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const UserDetails = ({ user }) => (
-    <div>
+    <div
+        className='col-md-4 col-sm-6'
+        style={{
+            border: '1px solid black',
+            borderRadius: 10,
+            padding: 10
+        }}>
         <h3>{user['name']}, {user['age']}</h3>
         <img
             style={{

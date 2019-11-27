@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserList from './components/User/UserList';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import apiService from './api.sevice';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import AppRouter from './components/routing/AppRouter';
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 const apolloClient = new ApolloClient({
     uri: 'http://localhost:5000/graphql'
@@ -27,7 +29,7 @@ const store = createStore(reducer);
 ReactDOM.render(
 <Provider store={store}>
     <ApolloProvider client={apolloClient}>
-        <UserList />
+        <AppRouter />
     </ApolloProvider>
 </Provider>,
 document.getElementById('root'));
