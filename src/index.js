@@ -13,11 +13,11 @@ const apolloClient = new ApolloClient({
     uri: 'http://localhost:5000/graphql'
 });
 
-const reducer = (state = { users: [{ name: 'Pesho' }] }, action) => {
+const reducer = (state = { users: [] }, action) => {
     switch(action.type) {
-        case 'GetAll':
+        case 'SetUsers':
             const stateCopy = Object.assign({}, state);
-            stateCopy.users = apiService.getUsersREST();
+            stateCopy.users = action.users;
             return stateCopy;
         default:
             return state;
