@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const UserDetails = ({ user }) => (
     <div
-        className='col-md-4 col-sm-6'
         style={{
+            margin: 'auto',
             border: '1px solid black',
             borderRadius: 10,
             padding: 10

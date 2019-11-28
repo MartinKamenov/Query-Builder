@@ -19,9 +19,11 @@ const UserList = () => {
             <div className='row'>
                 {
                     data.users.map((user) => (
-                    <UserDetails
-                        key={user['id']}
-                        user={user}/>
+                    <div className='col-md-4 col-sm-6'>
+                        <UserDetails
+                            key={user['id']}
+                            user={user}/>
+                    </div>
                     ))
                 }
             </div>);
