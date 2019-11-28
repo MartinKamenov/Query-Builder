@@ -1,23 +1,13 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import UserDetails from './UserDetails';
+import queries from '../../graphql/queries';
 
-const requestUserQuery = gql`
-query UserQuery($id: String) {
-    user(id: $id) {
-        age
-        name
-        id
-        imageUrl
-    }
-}
-`;
 const SingleUser = ({match: { params: {id} }}) => {
     return (
-        <div>
+        <div style={{ margin: 'auto' }}>
             <h3>User</h3>
-            <Query variables={{ id }} query={requestUserQuery}>
+            <Query variables={{ id }} query={queries.REQUEST_USER_QUERY}>
                 {
                     ({ loading, error, data }) => {
                         if(loading) {

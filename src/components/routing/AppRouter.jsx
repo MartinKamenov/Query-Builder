@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import UserList from '../User/UserList';
-import SingleUser from '../User/SingleUser';
+import UserList from '../user/UserList';
+import SingleUser from '../user/SingleUser';
 
 const AppRouter = () => (
     <Router>

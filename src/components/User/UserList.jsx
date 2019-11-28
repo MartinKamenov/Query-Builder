@@ -1,21 +1,11 @@
 import React, { useCallback } from 'react';
-import gql from 'graphql-tag';
 import { useLazyQuery } from 'react-apollo';
 import UserDetails from './UserDetails';
+import queries from '../../graphql/queries';
 
-const USERS_QUERY = gql`
-    query UsersQuery {
-        users {
-            age
-            name
-            id
-            imageUrl
-        }
-    }
-`;
 
 const UserList = () => {
-    const [runQuery, { called, loading, data }] = useLazyQuery(USERS_QUERY);
+    const [runQuery, { called, loading, data }] = useLazyQuery(queries.USERS_QUERY);
     const handleClick = () => runQuery({ variables: {} });
 
     const visualizeContent = useCallback(() => {
@@ -36,12 +26,15 @@ const UserList = () => {
                 }
             </div>);
         }
-    }, [data, loading])
+    }, [data, loading]);
 
     return (
         <div style={{ textAlign: 'center', width: '100%' }}>
             <h1>Users</h1>
-            <button className='btn btn-success' onClick={handleClick}>Get users</button>
+            <button
+                style={{ margin: 5 }}
+                className='btn btn-success'
+                onClick={handleClick}>Get users</button>
             { visualizeContent() }
         </div>
     );
